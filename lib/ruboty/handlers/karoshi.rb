@@ -30,7 +30,7 @@ module Ruboty
 
         robot.brain.data[NAMESPACE] ||= {}
         robot.brain.data[NAMESPACE][today] ||= {}
-        robot.brain.data[NAMESPACE][today][from] ||= {n_hours: n_hours}
+        robot.brain.data[NAMESPACE][today][from] = {n_hours: n_hours}
       end
 
       def read
