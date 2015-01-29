@@ -7,13 +7,14 @@ module Ruboty
         '１'=>'1', '２'=>'2', '３'=>'3', '４'=>'4', '５'=>'5', '６'=>'6', '７'=>'7', '８'=>'8', '９'=>'9',
       }
 
-      on %r|(?<n_hours>.+)時間(?<half_an_hour>半)?残業します|, description: '発言者の残業が申請されます', name: :n_hours_application
-      on %r|(?<n_hours>.+)時間(?<half_an_hour>半)?残業しました|, description: '発言者の残業が申請を却下します', name: :reject_application
-      on %r|残業申請者?一覧|, description: '残業申請一覧を表示します', name: :show_list
+      on %r|(?<n_hours>.+)時間(?<half_an_hour>半)?残業します|, description: '発言者の残業が申請されます', name: :n_hours_application, all: true
+      on %r|(?<n_hours>.+)時間(?<half_an_hour>半)?残業しました|, description: '発言者の残業が申請を却下します', name: :reject_application, all: true
+      on %r|残業申請者?一覧|, description: '残業申請一覧を表示します', name: :show_list, all: true
 
       def n_hours_application(message)
         from = message.original[:from]
         n_hours = message[:n_hours]
+        n_hours = n_hours.sub(/^[a-zA-Z:_\- ]+/, '')
         n_hours = n_hours.gsub(/#{STRTONUM.keys.join('|')}/) {|k| STRTONUM[k]}
         n_hours = n_hours.to_f
         n_hours += 0.5 if message[:half_an_hour].to_s != ''
