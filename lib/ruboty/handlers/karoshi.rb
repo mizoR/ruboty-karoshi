@@ -4,7 +4,7 @@ module Ruboty
       NAMESPACE = 'karoshi'
 
       on %r|(?<n_hours>\d(\.\d)?)時間(?<half_an_hour>半)?残業します|, description: '発言者の残業が申請されます', name: :n_hours_application
-      on %r|残業申請者一覧|, description: '残業者を取得します', name: :show_list
+      on %r|残業申請者?一覧|, description: '残業者を取得します', name: :show_list
 
       def n_hours_application(message)
         from = message.original[:from]
