@@ -22,7 +22,7 @@ module Ruboty
         message.reply("#{n_hours}時間ですね、無理はしないように o(*´ゝ∀･)ﾉｶﾞﾝﾊﾞ!!")
       end
 
-      def reject_application
+      def reject_application(message)
         message.reply("事後申請は受け付けておりません、ちゃんと事前に申請しましょう(｀・ω・´)ｷﾘｯ")
       end
 
