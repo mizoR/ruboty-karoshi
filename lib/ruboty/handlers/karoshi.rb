@@ -18,7 +18,7 @@ module Ruboty
         n_hours = n_hours.to_f
         n_hours += 0.5 if message[:half_an_hour].to_s != ''
         write(from: from, n_hours: n_hours)
-        message.reply("#{n_hours}時間ですね。残業頑張ってください")
+        message.reply("#{n_hours}時間ですね、無理はしないように o(*´ゝ∀･)ﾉｶﾞﾝﾊﾞ!!")
       end
 
       def reject_application
