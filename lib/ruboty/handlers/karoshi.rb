@@ -8,7 +8,7 @@ module Ruboty
       }
 
       on %r|(?<n_hours>.+)時間(?<half_an_hour>半)?残業します|, description: '発言者の残業が申請されます', name: :n_hours_application, all: true
-      on %r|(?<n_hours>.+)時間(?<half_an_hour>半)?残業しました|, description: '発言者の残業が申請を却下します', name: :reject_application, all: true
+      on %r|(?<n_hours>.+)時間(?<half_an_hour>半)?残業しました|, description: '発言者の残業申請を却下します', name: :reject_application, all: true
       on %r|残業申請者?一覧|, description: '残業申請一覧を表示します', name: :show_list, all: true
 
       def n_hours_application(message)
